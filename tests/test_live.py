@@ -79,3 +79,21 @@ def test_a_refused_service_is_listed_and_the_rest_still_runs(session, monkeypatc
     found, skipped = live.check(session, [REGION])
     assert skipped == [f"Lambda in {REGION}: AccessDeniedException"]
     assert "LOG_NO_RETENTION" in rules(found)
+
+
+def test_old_keys_imdsv1_and_tables_without_recovery_are_found(session, monkeypatch):
+    from datetime import timedelta
+
+    monkeypatch.setattr(live, "KEY_AGE", timedelta(0))   # moto's keys are new; any age counts here
+    iam = session.client("iam")
+    iam.create_user(UserName="ci")
+    iam.create_access_key(UserName="ci")
+    ec2 = session.client("ec2")
+    ami = ec2.describe_images(Owners=["amazon"])["Images"][0]["ImageId"]
+    ec2.run_instances(ImageId=ami, MinCount=1, MaxCount=1, InstanceType="t3.micro",
+                      MetadataOptions={"HttpTokens": "optional"})
+    session.client("dynamodb").create_table(TableName="sessions", BillingMode="PAY_PER_REQUEST",
+                                            KeySchema=[{"AttributeName": "id", "KeyType": "HASH"}],
+                                            AttributeDefinitions=[{"AttributeName": "id", "AttributeType": "S"}])
+    found = rules(live.check(session, [REGION])[0])
+    assert {"OLD_ACCESS_KEY", "IMDS_V1", "DDB_NO_PITR"} <= found

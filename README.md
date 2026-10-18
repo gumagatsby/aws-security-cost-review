@@ -53,4 +53,4 @@ The client creates the review role with [`terraform/`](terraform): AWS's read-on
 - A rule only reports what the configuration shows. Values that Terraform can only know at plan time are left alone, and the report says so.
 - A check the account refuses is listed as not checked, never as passed.
 - The model sees the findings and nothing else. Its summary is rejected if it cites a finding that doesn't exist or uses a number that isn't in the findings.
-- Every rule is tested both catching its problem and passing correct configuration.
+- Every Terraform rule is tested both catching its problem and passing correct configuration, and the live checks are tested against a mocked AWS account. The two gaps are listed in the results.

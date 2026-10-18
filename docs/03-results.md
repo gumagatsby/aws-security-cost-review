@@ -4,7 +4,7 @@ Run on 18 October 2026.
 
 ## The rules against a sample written to break them (N1)
 
-`tests/fixtures/flawed/main.tf` breaks every rule that can be read from Terraform. Each of those 17 rules fires exactly once on it, and none fires on `tests/fixtures/clean/main.tf`, which sets the same resources up correctly. The 7 rules that need a live account (root user, access key age, CloudTrail, default encryption, unattached volumes, unused addresses) are tested against a mocked AWS account with moto. The full report on the flawed sample is in [examples/flawed-terraform](../examples/flawed-terraform/report.md).
+`tests/fixtures/flawed/main.tf` breaks every rule that can be read from Terraform. Each of those 17 rules fires exactly once on it, and none fires on `tests/fixtures/clean/main.tf`, which sets the same resources up correctly. The live-account checks are tested against a mocked AWS account with moto, except two: root access keys, and Lambda function URLs read from a live account. The Lambda rule is tested on Terraform; the root key check reads one field of the IAM account summary. The full report on the flawed sample is in [examples/flawed-terraform](../examples/flawed-terraform/report.md).
 
 ## This portfolio's own Terraform (N6)
 
