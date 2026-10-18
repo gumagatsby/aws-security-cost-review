@@ -4,6 +4,10 @@
 
 Points at a company's AWS setup, its Terraform code or the live account, and writes a report a manager can act on: where it's exposed, where it pays for nothing, and what would fail badly. Each finding says where it is, why it matters, the fix, and the AWS Well-Architected best practice behind it. The rules find the problems; a model only writes the summary, and its text is checked against the findings before it's used.
 
+![Architecture](docs/architecture.png)
+
+Editable source: [`docs/architecture.drawio`](docs/architecture.drawio). Portrait version for social posts: [`docs/linkedin-architecture.drawio`](docs/linkedin-architecture.drawio).
+
 **Start with the results:** [docs/03-results.md](docs/03-results.md), from running it on this portfolio's own code and AWS account.
 
 | | |
