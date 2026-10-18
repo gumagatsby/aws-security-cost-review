@@ -6,3 +6,7 @@ out/
 terraform/.terraform/
 terraform/*.tfstate*
 terraform/tf.plan
+
+# Local secrets
+.env
+.env.*
