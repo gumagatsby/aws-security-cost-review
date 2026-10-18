@@ -1,0 +1,188 @@
+{
+ "scope": "account",
+ "target": "account <account>, eu-west-2, eu-west-1, us-east-1",
+ "summary_source": "plain",
+ "not_checked": [
+  "Lambda in eu-west-2: AccessDeniedException",
+  "Lambda in eu-west-1: AccessDeniedException",
+  "Lambda in us-east-1: AccessDeniedException"
+ ],
+ "findings": [
+  {
+   "rule": "NO_CLOUDTRAIL",
+   "resource": "cloudtrail",
+   "where": "eu-west-1",
+   "detail": "",
+   "accepted": null,
+   "title": "No multi-region CloudTrail trail logging",
+   "pillar": "Security",
+   "practice": "SEC04-BP01",
+   "severity": "high"
+  },
+  {
+   "rule": "NO_CLOUDTRAIL",
+   "resource": "cloudtrail",
+   "where": "eu-west-2",
+   "detail": "",
+   "accepted": null,
+   "title": "No multi-region CloudTrail trail logging",
+   "pillar": "Security",
+   "practice": "SEC04-BP01",
+   "severity": "high"
+  },
+  {
+   "rule": "NO_CLOUDTRAIL",
+   "resource": "cloudtrail",
+   "where": "us-east-1",
+   "detail": "",
+   "accepted": null,
+   "title": "No multi-region CloudTrail trail logging",
+   "pillar": "Security",
+   "practice": "SEC04-BP01",
+   "severity": "high"
+  },
+  {
+   "rule": "DDB_NO_PITR",
+   "resource": "ssp-load-audit",
+   "where": "eu-west-2",
+   "detail": "",
+   "accepted": null,
+   "title": "DynamoDB table without point-in-time recovery",
+   "pillar": "Reliability",
+   "practice": "REL09-BP03",
+   "severity": "medium"
+  },
+  {
+   "rule": "S3_TLS_ONLY",
+   "resource": "arn:aws:s3:::tfstate-<account>-eu-west-2",
+   "where": "eu-west-2",
+   "detail": "",
+   "accepted": null,
+   "title": "S3 bucket accepts requests without TLS",
+   "pillar": "Security",
+   "practice": "SEC09-BP02",
+   "severity": "medium"
+  },
+  {
+   "rule": "EBS_DEFAULT_ENCRYPTION_OFF",
+   "resource": "eu-west-1",
+   "where": "eu-west-1",
+   "detail": "",
+   "accepted": null,
+   "title": "EBS encryption by default is off",
+   "pillar": "Security",
+   "practice": "SEC08-BP02",
+   "severity": "low"
+  },
+  {
+   "rule": "EBS_DEFAULT_ENCRYPTION_OFF",
+   "resource": "eu-west-2",
+   "where": "eu-west-2",
+   "detail": "",
+   "accepted": null,
+   "title": "EBS encryption by default is off",
+   "pillar": "Security",
+   "practice": "SEC08-BP02",
+   "severity": "low"
+  },
+  {
+   "rule": "EBS_DEFAULT_ENCRYPTION_OFF",
+   "resource": "us-east-1",
+   "where": "us-east-1",
+   "detail": "",
+   "accepted": null,
+   "title": "EBS encryption by default is off",
+   "pillar": "Security",
+   "practice": "SEC08-BP02",
+   "severity": "low"
+  },
+  {
+   "rule": "LOG_NO_RETENTION",
+   "resource": "/aws-glue/jobs/edge-analytics-role/edge-analytics-glue/error",
+   "where": "eu-west-2",
+   "detail": "",
+   "accepted": null,
+   "title": "Log group kept forever",
+   "pillar": "Cost optimization",
+   "practice": "COST04-BP05",
+   "severity": "low"
+  },
+  {
+   "rule": "LOG_NO_RETENTION",
+   "resource": "/aws-glue/jobs/edge-analytics-role/edge-analytics-glue/output",
+   "where": "eu-west-2",
+   "detail": "",
+   "accepted": null,
+   "title": "Log group kept forever",
+   "pillar": "Cost optimization",
+   "practice": "COST04-BP05",
+   "severity": "low"
+  },
+  {
+   "rule": "LOG_NO_RETENTION",
+   "resource": "/aws-glue/jobs/error",
+   "where": "eu-west-2",
+   "detail": "",
+   "accepted": null,
+   "title": "Log group kept forever",
+   "pillar": "Cost optimization",
+   "practice": "COST04-BP05",
+   "severity": "low"
+  },
+  {
+   "rule": "LOG_NO_RETENTION",
+   "resource": "/aws-glue/jobs/logs-v2",
+   "where": "eu-west-2",
+   "detail": "",
+   "accepted": null,
+   "title": "Log group kept forever",
+   "pillar": "Cost optimization",
+   "practice": "COST04-BP05",
+   "severity": "low"
+  },
+  {
+   "rule": "LOG_NO_RETENTION",
+   "resource": "/aws-glue/jobs/output",
+   "where": "eu-west-2",
+   "detail": "",
+   "accepted": null,
+   "title": "Log group kept forever",
+   "pillar": "Cost optimization",
+   "practice": "COST04-BP05",
+   "severity": "low"
+  },
+  {
+   "rule": "S3_NO_VERSIONING",
+   "resource": "arn:aws:s3:::ssp-athena-<account>-eu-west-2",
+   "where": "eu-west-2",
+   "detail": "",
+   "accepted": null,
+   "title": "S3 bucket without versioning",
+   "pillar": "Reliability",
+   "practice": "REL09-BP01",
+   "severity": "low"
+  },
+  {
+   "rule": "S3_NO_VERSIONING",
+   "resource": "arn:aws:s3:::ssp-curated-<account>-eu-west-2",
+   "where": "eu-west-2",
+   "detail": "",
+   "accepted": null,
+   "title": "S3 bucket without versioning",
+   "pillar": "Reliability",
+   "practice": "REL09-BP01",
+   "severity": "low"
+  },
+  {
+   "rule": "S3_NO_VERSIONING",
+   "resource": "arn:aws:s3:::ssp-raw-<account>-eu-west-2",
+   "where": "eu-west-2",
+   "detail": "",
+   "accepted": null,
+   "title": "S3 bucket without versioning",
+   "pillar": "Reliability",
+   "practice": "REL09-BP01",
+   "severity": "low"
+  }
+ ]
+}

@@ -1,0 +1,195 @@
+{
+ "scope": "terraform",
+ "target": "tests/fixtures/flawed",
+ "summary_source": "plain",
+ "not_checked": [],
+ "findings": [
+  {
+   "rule": "IAM_WILDCARD",
+   "resource": "aws_iam_role_policy.admin",
+   "where": "main.tf:33",
+   "detail": "",
+   "accepted": null,
+   "title": "IAM policy allows every action on every resource",
+   "pillar": "Security",
+   "practice": "SEC03-BP02",
+   "severity": "high"
+  },
+  {
+   "rule": "PLAINTEXT_SECRET",
+   "resource": "aws_db_instance.orders",
+   "where": "main.tf:7",
+   "detail": "password",
+   "accepted": null,
+   "title": "Password written into the configuration",
+   "pillar": "Security",
+   "practice": "SEC02-BP03",
+   "severity": "high"
+  },
+  {
+   "rule": "RDS_NO_BACKUP",
+   "resource": "aws_db_instance.orders",
+   "where": "main.tf:7",
+   "detail": "",
+   "accepted": null,
+   "title": "Database automated backups switched off",
+   "pillar": "Reliability",
+   "practice": "REL09-BP03",
+   "severity": "high"
+  },
+  {
+   "rule": "RDS_PUBLIC",
+   "resource": "aws_db_instance.orders",
+   "where": "main.tf:7",
+   "detail": "",
+   "accepted": null,
+   "title": "Database reachable from the internet",
+   "pillar": "Security",
+   "practice": "SEC05-BP01",
+   "severity": "high"
+  },
+  {
+   "rule": "RDS_UNENCRYPTED",
+   "resource": "aws_db_instance.orders",
+   "where": "main.tf:7",
+   "detail": "",
+   "accepted": null,
+   "title": "Database storage not encrypted",
+   "pillar": "Security",
+   "practice": "SEC08-BP02",
+   "severity": "high"
+  },
+  {
+   "rule": "S3_PUBLIC_ACCESS",
+   "resource": "aws_s3_bucket.uploads",
+   "where": "main.tf:3",
+   "detail": "",
+   "accepted": null,
+   "title": "S3 bucket without Block Public Access",
+   "pillar": "Security",
+   "practice": "SEC03-BP07",
+   "severity": "high"
+  },
+  {
+   "rule": "SG_ADMIN_OPEN",
+   "resource": "aws_security_group.web",
+   "where": "main.tf:17",
+   "detail": "port 22",
+   "accepted": null,
+   "title": "SSH, RDP or all ports open to the internet",
+   "pillar": "Security",
+   "practice": "SEC05-BP02",
+   "severity": "high"
+  },
+  {
+   "rule": "DDB_NO_PITR",
+   "resource": "aws_dynamodb_table.sessions",
+   "where": "main.tf:54",
+   "detail": "",
+   "accepted": null,
+   "title": "DynamoDB table without point-in-time recovery",
+   "pillar": "Reliability",
+   "practice": "REL09-BP03",
+   "severity": "medium"
+  },
+  {
+   "rule": "EBS_UNENCRYPTED",
+   "resource": "aws_instance.app",
+   "where": "main.tf:41",
+   "detail": "root or attached volume",
+   "accepted": null,
+   "title": "Disk volume not encrypted",
+   "pillar": "Security",
+   "practice": "SEC08-BP02",
+   "severity": "medium"
+  },
+  {
+   "rule": "IMDS_V1",
+   "resource": "aws_instance.app",
+   "where": "main.tf:41",
+   "detail": "",
+   "accepted": null,
+   "title": "Instance metadata allows IMDSv1",
+   "pillar": "Security",
+   "practice": "SEC06-BP03",
+   "severity": "medium"
+  },
+  {
+   "rule": "LAMBDA_URL_OPEN",
+   "resource": "aws_lambda_function_url.api",
+   "where": "main.tf:49",
+   "detail": "",
+   "accepted": null,
+   "title": "Lambda function URL with no authentication",
+   "pillar": "Security",
+   "practice": "SEC03-BP07",
+   "severity": "medium"
+  },
+  {
+   "rule": "S3_TLS_ONLY",
+   "resource": "aws_s3_bucket.uploads",
+   "where": "main.tf:3",
+   "detail": "",
+   "accepted": null,
+   "title": "S3 bucket accepts requests without TLS",
+   "pillar": "Security",
+   "practice": "SEC09-BP02",
+   "severity": "medium"
+  },
+  {
+   "rule": "EBS_GP2",
+   "resource": "aws_instance.app",
+   "where": "main.tf:41",
+   "detail": "",
+   "accepted": null,
+   "title": "Volume uses gp2",
+   "pillar": "Cost optimization",
+   "practice": "COST06-BP02",
+   "severity": "low"
+  },
+  {
+   "rule": "LOG_NO_RETENTION",
+   "resource": "aws_cloudwatch_log_group.app",
+   "where": "main.tf:64",
+   "detail": "",
+   "accepted": null,
+   "title": "Log group kept forever",
+   "pillar": "Cost optimization",
+   "practice": "COST04-BP05",
+   "severity": "low"
+  },
+  {
+   "rule": "RDS_SINGLE_AZ",
+   "resource": "aws_db_instance.orders",
+   "where": "main.tf:7",
+   "detail": "",
+   "accepted": null,
+   "title": "Database in one Availability Zone",
+   "pillar": "Reliability",
+   "practice": "REL10-BP01",
+   "severity": "low"
+  },
+  {
+   "rule": "S3_NO_LIFECYCLE",
+   "resource": "aws_s3_bucket.uploads",
+   "where": "main.tf:3",
+   "detail": "",
+   "accepted": null,
+   "title": "S3 bucket without a lifecycle rule",
+   "pillar": "Cost optimization",
+   "practice": "COST04-BP05",
+   "severity": "low"
+  },
+  {
+   "rule": "S3_NO_VERSIONING",
+   "resource": "aws_s3_bucket.uploads",
+   "where": "main.tf:3",
+   "detail": "",
+   "accepted": null,
+   "title": "S3 bucket without versioning",
+   "pillar": "Reliability",
+   "practice": "REL09-BP01",
+   "severity": "low"
+  }
+ ]
+}
