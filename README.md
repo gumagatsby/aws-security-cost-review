@@ -1,6 +1,6 @@
 # AWS security and cost review agent
 
-[![ci](https://github.com/gumagatsby/aws-security-cost-review/actions/workflows/ci.yml/badge.svg)](https://github.com/gumagatsby/aws-security-cost-review/actions/workflows/ci.yml)
+[![ci](https://github.com/tapiwa-magumise/aws-security-cost-review/actions/workflows/ci.yml/badge.svg)](https://github.com/tapiwa-magumise/aws-security-cost-review/actions/workflows/ci.yml)
 
 Points at a company's AWS setup, its Terraform code or the live account, and writes a report a manager can act on: where it's exposed, where it pays for nothing, and what would fail badly. Each finding says where it is, why it matters, the fix, and the AWS Well-Architected best practice behind it. The rules find the problems; a model only writes the summary, and its text is checked against the findings before it's used.
 
