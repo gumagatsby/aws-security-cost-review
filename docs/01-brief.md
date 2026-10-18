@@ -22,7 +22,7 @@ They have two things to show: the Terraform their infrastructure is written in, 
 
 | # | Requirement |
 |---|---|
-| N1 | Every rule is shown finding its problem, and the Terraform rules passing correct configuration |
+| N1 | Every Terraform rule is shown finding its problem and passing correct configuration, and the live checks are tested against a mocked AWS account |
 | N2 | A finding is never invented. The rules find the problems; a model may only write the summary, and its text is checked against the findings before it's used |
 | N3 | The live review can't change anything: its role holds the AWS managed SecurityAudit policy, which every call it makes is checked against |
 | N4 | Only the reviewer can assume the client's role, and only with an external id agreed with the client |
