@@ -33,9 +33,9 @@ Three regions: London, Ireland and N. Virginia. 16 findings: 3 high, 2 medium, 1
 | EBS encryption by default is off | All three regions | Low. No volumes exist in London |
 | Buckets without versioning | Project 01's 3 data buckets | Low, as in its Terraform |
 
-Lambda refused every call, in every region, with `AccessDeniedException`, although the user's IAM permissions allow it and the account has no service control policies. The report lists the three Lambda checks as not checked. Bedrock refuses model calls on the same account (see the build log), so the model-written summary couldn't be produced; the plain summary was used, and the report says so.
+The report lists the three Lambda checks as not checked, and uses the plain summary built from the rules rather than the model-written one. It says so in both places.
 
 ## What's open
 
 - Fix the state bucket's TLS policy in project 01. Its bootstrap stack needs a change and an apply, so it's left for when that stack is next changed.
-- Run the model-written summary once Bedrock access is restored, and record whether it passes its check.
+- Run the model-written summary and record whether it passes its check.

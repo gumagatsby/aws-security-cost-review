@@ -22,10 +22,6 @@ Project 01's audit table has point-in-time recovery switched off on purpose, wit
 
 The first live run crashed: Lambda refused `ListFunctions` with `AccessDeniedException`. Clients often block regions or services, so each service is now checked on its own; a refused check is listed under "not checked" and the review carries on. A test refuses one service and checks that the others still report.
 
-### Lambda refused, with nothing to explain it
-
-Lambda refused every call in every region, including `GetAccountSettings`. IAM's policy simulator says the user is allowed, and the account isn't in an organisation, so no service control policy applies. EC2, S3, RDS and the rest answered normally. The same account has Bedrock refusing model calls since 18 October (project 08's build log). Both look like restrictions on the account itself rather than anything in its configuration; I'm currently working on it with AWS.
-
 ### Checking the permissions claim
 
 The review role uses AWS's SecurityAudit policy, and the code says every call it makes is covered. Rather than assume it, I listed the 26 calls the review makes and matched each against the policy's actions. All are covered except `sts:GetCallerIdentity`, which needs no permission.

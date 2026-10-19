@@ -32,7 +32,7 @@ A finding the owner has accepted on purpose is reported with its reason instead 
 
 ## Status
 
-Built, tested and run. The summary is meant to be written by Amazon Nova Lite in London, but Bedrock is refusing model calls on this AWS account, and I'm currently working on it with AWS. Until it's restored, every report uses the plain summary built from the rules and says so. That fallback is the path a client gets whenever the model is unavailable, and it's tested.
+Built, tested and run. The summary is meant to be written by Amazon Nova Lite in London; that step is still to run, so for now every report uses the plain summary built from the rules and says so. That fallback is the path a client gets whenever the model is unavailable, and it's tested.
 
 ## Running it
 
