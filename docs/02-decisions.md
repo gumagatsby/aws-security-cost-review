@@ -16,7 +16,7 @@ Each row names the main alternative and what this choice gives up.
 | External id on the client's role | Trust the reviewer's account alone | Stops another customer of the same reviewer from pointing the tool at an account that isn't theirs (the confused deputy problem) | One more value to agree and keep safe |
 | Refused checks listed, review continues | Stop at the first refused call | Accounts often restrict regions or services. A partial review that says what it couldn't see is useful; a crash isn't (N5) | A careless reader might miss the "not checked" list, so it sits under its own heading |
 | Accept a finding with a comment in the resource | A separate suppression file | The reason sits next to the code it explains and is reviewed with it (F5) | Live-account findings can't be accepted this way |
-| Amazon Nova Lite in London for the summary | A third-party model | The same choice and controls as project 08: Amazon's own model, invoked in the UK | Bedrock model access is blocked on this account at the time of writing; the plain summary is used meanwhile |
+| Amazon Nova Lite in London for the summary | A third-party model | The same choice and controls as project 08: Amazon's own model, invoked in the UK | The model-written summary is still to run; the plain summary is used meanwhile |
 
 ## Severity
 
